@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Каталог товаров</h1>
+    <ul id="catalog">
+      <li class="parent">Книги
+        <ul>
+          <li class="parent">Отечественные
+            <ul>
+              <li><a href="#">Детективы</a></li>
+              <li><a href="#">Научная фантастика</a></li>
+              <li><a href="#">Историческое</a></li>
+            </ul>
+          </li>
+          <li class="parent">Зарубежные
+            <ul>
+              <li><a href="#">Детективы</a></li>
+              <li><a href="#">Научная фантастика</a></li>
+              <li><a href="#">Историческое</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="parent">DVD
+        <ul>
+          <li class="parent">Отечественные
+            <ul>
+              <li><a href="#">Детективы</a></li>
+              <li><a href="#">Научная фантастика</a></li>
+              <li><a href="#">Историческое</a></li>
+            </ul>
+          </li>
+          <li class="parent">Зарубежные
+            <ul>
+              <li><a href="#">Детективы</a></li>
+              <li><a href="#">Научная фантастика</a></li>
+              <li><a href="#">Историческое</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    
+    <style>
+      ul > li > ul {
+        display: none;
+      }
+    
+      li.parent {
+        cursor: pointer;
+      }
+    </style>
+    
+    <script>
+      var parents = document.getElementsByClassName('parent');
+    
+      for (var i = 0; i < parents.length; i++) {
+        parents[i].addEventListener('click', function(event) {
+          event.stopPropagation();
+          var children = this.getElementsByTagName('ul')[0];
+          if (children) {
+            if (children.style.display === 'none') {
+              children.style.display = 'block';
+            } else {
+              children.style.display = 'none';
+            }
+          }
+        });
+      }
+    </script>
+</body>
+</html>
